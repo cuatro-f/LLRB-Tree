@@ -1,0 +1,11 @@
+all: time.o tree.o debug.o
+	gcc -o time -lreadline time.o input/read.o tree.o debug.o
+time.o: time.c
+	gcc -c -o time.o time.c
+debug.o: debug/debug.c
+	gcc -c -o debug.o debug/debug.c
+tree.o: tree/tree.c
+	gcc -c -o tree.o tree/tree.c
+clean:
+	rm -rf time
+	rm -rf *.dot *.o
